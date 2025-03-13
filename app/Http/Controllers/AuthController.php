@@ -61,7 +61,7 @@ class AuthController extends Controller
                 
             }
 
-            $token = $user->createToken("rida",["*"],now()->addMinutes(1))->plainTextToken;
+            $token = $user->createToken("rida",["*"],now()->addMinutes(10000))->plainTextToken;
             
             return response()->json(["message "=>"user succesfully login", "token"=>$token],200);
 
