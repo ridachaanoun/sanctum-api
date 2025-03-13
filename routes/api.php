@@ -23,4 +23,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/countries/{id}', [CountryController::class, 'update']);
     Route::delete('/countries/{id}', [CountryController::class, 'destroy']);
     Route::post('/countries', [CountryController::class, 'store']);
+    
+    Route::post('/countries/{id}/flag', [CountryController::class, 'uploadFlag']);
+    Route::get('/countries/{id}/flag', [CountryController::class, 'getFlag']);
+
 });

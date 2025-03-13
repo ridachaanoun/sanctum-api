@@ -55,4 +55,19 @@ class CountryController extends Controller
 
         return response()->json(null, 204);
     }
+    public function getFlag($id)
+    {
+        $country = Country::findOrFail($id);
+
+        return response()->json($country->flag_url, 200);
+    }
+    public function uploadFlag(request $r, $id)
+    {
+        $country = Country::findOrFail($id);
+        $country->flag_url = $r->name;
+        $country->save();
+        return response()->json($country, 200);
+    }
+
+    
 }
